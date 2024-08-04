@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
@@ -11,14 +11,11 @@
 {% block mainmenu %}
         <div class="header">
             <ul id="mainmenu" class="mainmenu">
-                <li class="logo"><a href="#"><div class="logo"></div></a></li>
+                <li class="logo"><a href="{% url 'index' %}"><div class="logo"></div></a></li>
 {% for i_elem in menu %}
-    {% if not forloop.last %}
-            <li><a href="#">{{ i_elem.title}} </a></li>
-    {% else %}
-            <li class="last"> <a href="#">{{i_elem.title}}</a></li>
-    {% endif %}
+            <li><a href="{% url i_elem.url_name %}">{{ i_elem.title}} </a></li>
 {% endfor %}
+            <li class="last"> <a href="{% url 'register' %}">регистрация</a> | <a href="{% url 'login' %}">войти</a></li>
             </ul>
             <div class="clear"></div>
         </div>
