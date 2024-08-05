@@ -1,13 +1,5 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<ul>
-      {% for i_elem in posts %}
-      <li>
-          <h2>{{ i_elem.name }}</h2>
-          <p>{{ i_elem.content }}</p>
-          <hr>
-      </li>
-      {% endfor %}
-  </ul>
+<h1>{{ title }}</h1>
 {% endblock content%}

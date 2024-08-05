@@ -15,7 +15,11 @@
 {% for i_elem in menu %}
             <li><a href="{% url i_elem.url_name %}">{{ i_elem.title}} </a></li>
 {% endfor %}
-            <li class="last"> <a href="{% url 'register' %}">регистрация</a> | <a href="{% url 'login' %}">войти</a></li>
+                {% if request.user.is_authenticated %}
+                <li class="last">{{ user.username }} | <a href="{% url 'logout' %}">выйти</a></li>
+                {% else %}
+                <li class="last"> <a href="{% url 'register' %}">регистрация</a> | <a href="{% url 'login' %}">войти</a></li>
+                {% endif %}
             </ul>
             <div class="clear"></div>
         </div>
